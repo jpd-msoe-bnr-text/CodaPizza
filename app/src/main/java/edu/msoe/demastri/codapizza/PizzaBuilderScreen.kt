@@ -3,6 +3,7 @@ package edu.msoe.demastri.codapizza
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -14,6 +15,7 @@ import edu.msoe.demastri.codapizza.model.Topping
 import edu.msoe.demastri.codapizza.model.ToppingPlacement
 import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.lazy.items
 
 @Preview
 @Composable
@@ -41,12 +43,19 @@ fun PizzaBuilderScreen(
 private fun ToppingsList(
     modifier: Modifier = Modifier
 ) {
-    ToppingCell(
-        topping = Topping.Pepperoni,
-        placement = ToppingPlacement.Left,
-        onClickTopping = {},
+    LazyColumn(
         modifier = modifier
-    )
+    ) {
+        items(Topping.values()) { topping ->
+            ToppingCell(
+                topping = topping,
+                placement = ToppingPlacement.Left,
+                onClickTopping = {
+                    // TODO
+                }
+            )
+        }
+    }
 }
 
 @Composable
