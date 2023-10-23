@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.material.Checkbox
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import edu.msoe.demastri.codapizza.model.Topping
@@ -22,7 +23,7 @@ private fun ToppingCellPreviewNotOnPizza() {
 
 @Preview
 @Composable
-private fun ToppingCellPreview() {
+private fun ToppingCellPreviewOnLeftHalf() {
     ToppingCell(
         topping = Topping.Pepperoni,
         placement = ToppingPlacement.Left,
@@ -36,7 +37,10 @@ public fun ToppingCell(
     placement: ToppingPlacement?,
     onClickTopping: () -> Unit
 ) {
-    Row {
+    Row (
+        verticalAlignment = Alignment.CenterVertically
+    ){
+
         Checkbox(
             checked = (placement != null),
             onCheckedChange = { /* TODO */ }
