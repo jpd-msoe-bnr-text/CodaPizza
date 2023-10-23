@@ -46,7 +46,6 @@ public fun ToppingCell(
     onClickTopping: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Log.d("ToppingCell", "Called ToppingCell for $topping")
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier

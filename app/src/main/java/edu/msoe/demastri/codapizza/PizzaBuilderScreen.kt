@@ -20,6 +20,7 @@ import androidx.compose.foundation.lazy.items
 import edu.msoe.demastri.codapizza.model.Pizza
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 
 @Preview
@@ -44,12 +45,12 @@ fun PizzaBuilderScreen(
     }
 }
 
-private var pizza by mutableStateOf(Pizza())
-
 @Composable
 private fun ToppingsList(
     modifier: Modifier = Modifier
 ) {
+    var pizza by remember { mutableStateOf(Pizza()) }
+
     LazyColumn(
         modifier = modifier
     ) {
