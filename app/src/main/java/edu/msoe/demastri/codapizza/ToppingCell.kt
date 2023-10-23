@@ -3,6 +3,7 @@ package edu.msoe.demastri.codapizza
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.Checkbox
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -37,9 +38,9 @@ public fun ToppingCell(
     placement: ToppingPlacement?,
     onClickTopping: () -> Unit
 ) {
-    Row (
+    Row(
         verticalAlignment = Alignment.CenterVertically
-    ){
+    ) {
 
         Checkbox(
             checked = (placement != null),
@@ -48,12 +49,14 @@ public fun ToppingCell(
 
         Column {
             Text(
-                text = stringResource(topping.toppingName)
+                text = stringResource(topping.toppingName),
+                style = MaterialTheme.typography.body1
             )
 
-            if( placement != null) {
+            if (placement != null) {
                 Text(
-                    text = stringResource(placement.label)
+                    text = stringResource(placement.label),
+                    style = MaterialTheme.typography.body2
                 )
             }
         }
