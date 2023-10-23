@@ -16,6 +16,7 @@ import edu.msoe.demastri.codapizza.model.ToppingPlacement
 import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.items
+import edu.msoe.demastri.codapizza.model.Pizza
 
 @Preview
 @Composable
@@ -39,6 +40,14 @@ fun PizzaBuilderScreen(
     }
 }
 
+private var pizza =
+    Pizza(
+        toppings = mapOf(
+            Topping.Pepperoni to ToppingPlacement.All,
+            Topping.Pineapple to ToppingPlacement.All
+        )
+    )
+
 @Composable
 private fun ToppingsList(
     modifier: Modifier = Modifier
@@ -49,7 +58,7 @@ private fun ToppingsList(
         items(Topping.values()) { topping ->
             ToppingCell(
                 topping = topping,
-                placement = ToppingPlacement.Left,
+                placement = pizza.toppings[topping],
                 onClickTopping = {
                     // TODO
                 }
