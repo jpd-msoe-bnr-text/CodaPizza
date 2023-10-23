@@ -5,9 +5,20 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.material.Checkbox
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import edu.msoe.demastri.codapizza.model.Topping
 import edu.msoe.demastri.codapizza.model.ToppingPlacement
+
+@Preview
+@Composable
+private fun ToppingCellPreviewNotOnPizza() {
+    ToppingCell(
+        topping = Topping.Pepperoni,
+        placement = null,
+        onClickTopping = {}
+    )
+}
 
 @Preview
 @Composable
@@ -27,18 +38,20 @@ public fun ToppingCell(
 ) {
     Row {
         Checkbox(
-            checked = true,
+            checked = (placement != null),
             onCheckedChange = { /* TODO */ }
         )
 
         Column {
             Text(
-                text = "Pineapple"
+                text = stringResource(topping.toppingName)
             )
 
-            Text(
-                text = "Whole pizza"
-            )
+            if( placement != null) {
+                Text(
+                    text = stringResource(placement.label)
+                )
+            }
         }
     }
 }
