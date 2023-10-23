@@ -21,6 +21,7 @@ import edu.msoe.demastri.codapizza.model.Pizza
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import java.text.NumberFormat
 
@@ -29,7 +30,7 @@ import java.text.NumberFormat
 fun PizzaBuilderScreen(
     modifier: Modifier = Modifier
 ) {
-    var pizza by remember { mutableStateOf(Pizza()) }
+    var pizza by rememberSaveable { mutableStateOf(Pizza()) }
 
     Column(
         modifier = modifier
