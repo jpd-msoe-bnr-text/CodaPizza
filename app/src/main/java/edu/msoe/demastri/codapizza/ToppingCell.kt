@@ -1,6 +1,7 @@
 package edu.msoe.demastri.codapizza
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -41,13 +42,14 @@ private fun ToppingCellPreviewOnLeftHalf() {
 public fun ToppingCell(
     topping: Topping,
     placement: ToppingPlacement?,
+    modifier: Modifier = Modifier,
     onClickTopping: () -> Unit
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
+        modifier = modifier
+            .clickable { onClickTopping() }
             .padding(vertical = 4.dp, horizontal = 16.dp)
-            .background(Color.Cyan)
     ) {
 
         Checkbox(
@@ -55,7 +57,10 @@ public fun ToppingCell(
             onCheckedChange = { /* TODO */ }
         )
 
-        Column {
+        Column(
+            modifier = Modifier.weight(1f, fill = true)
+                .padding(start = 4.dp)
+        ) {
             Text(
                 text = stringResource(topping.toppingName),
                 style = MaterialTheme.typography.body1
