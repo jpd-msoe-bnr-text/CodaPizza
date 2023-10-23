@@ -9,6 +9,11 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Preview
 @Composable
+private fun ToppingCellPreview() {
+    ToppingCell()
+}
+
+@Composable
 public fun ToppingCell() {
     Row {
         Checkbox(
