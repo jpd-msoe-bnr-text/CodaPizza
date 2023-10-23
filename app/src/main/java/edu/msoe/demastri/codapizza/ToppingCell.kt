@@ -1,5 +1,6 @@
 package edu.msoe.demastri.codapizza
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -42,9 +43,10 @@ private fun ToppingCellPreviewOnLeftHalf() {
 public fun ToppingCell(
     topping: Topping,
     placement: ToppingPlacement?,
+    onClickTopping: () -> Unit,
     modifier: Modifier = Modifier,
-    onClickTopping: () -> Unit
 ) {
+    Log.d("ToppingCell", "Called ToppingCell for $topping")
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
