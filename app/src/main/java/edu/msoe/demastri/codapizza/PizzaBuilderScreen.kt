@@ -15,6 +15,7 @@ import edu.msoe.demastri.codapizza.model.Topping
 import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.TopAppBar
 import edu.msoe.demastri.codapizza.model.Pizza
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -33,6 +34,9 @@ fun PizzaBuilderScreen(
     Column(
         modifier = modifier
     ) {
+        TopAppBar(
+            title = { Text(stringResource(R.string.app_name)) }
+        )
         ToppingsList(
             pizza = pizza,
             onEditPizza = {pizza = it},
