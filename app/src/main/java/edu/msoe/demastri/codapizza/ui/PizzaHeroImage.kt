@@ -61,6 +61,11 @@ fun PizzaHeroImage(
                         ToppingPlacement.Left, ToppingPlacement.Right -> 0.5f
                         ToppingPlacement.All -> 1.0f
                     })
+                    .align(when (placement) {
+                        ToppingPlacement.Left -> Alignment.CenterStart
+                        ToppingPlacement.Right -> Alignment.CenterEnd
+                        ToppingPlacement.All -> Alignment.Center
+                    })
             )
         }
     }
