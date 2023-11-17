@@ -1,6 +1,8 @@
 package edu.msoe.demastri.codapizza.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.focusable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -30,9 +32,20 @@ fun PizzaHeroImage(
     pizza: Pizza,
     modifier: Modifier = Modifier
 ) {
-    Image(
-        painter = painterResource(R.drawable.pizza_crust),
-        contentDescription = stringResource(R.string.pizza_preview),
+    Box(
         modifier = modifier
-    )
+    ) {
+        Image(
+            painter = painterResource(R.drawable.pizza_crust),
+            contentDescription = stringResource(R.string.pizza_preview),
+        )
+
+        pizza.toppings.forEach { (topping, placement) ->
+            Image(
+                painter = painterResource(topping.pizzaOverlayImage),
+                contentDescription = null,
+                modifier = Modifier.focusable(false)
+            )
+        }
+    }
 }

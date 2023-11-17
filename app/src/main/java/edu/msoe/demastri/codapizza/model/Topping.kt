@@ -1,5 +1,6 @@
 package edu.msoe.demastri.codapizza.model
 
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import edu.msoe.demastri.codapizza.R
 
