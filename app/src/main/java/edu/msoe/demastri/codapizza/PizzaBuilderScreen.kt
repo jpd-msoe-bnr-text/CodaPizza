@@ -1,5 +1,6 @@
 package edu.msoe.demastri.codapizza
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -23,6 +24,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
 import java.text.NumberFormat
 
 @Preview
@@ -110,10 +112,12 @@ private fun OrderButton(
     pizza: Pizza,
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
     Button(
         modifier = modifier,
         onClick = {
-            // TODO
+            Toast.makeText(context, R.string.order_placed_toast, Toast.LENGTH_LONG)
+                .show()
         }
     ) {
         val currencyFormatter = remember { NumberFormat.getCurrencyInstance() }
