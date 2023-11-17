@@ -1,6 +1,5 @@
 package edu.msoe.demastri.codapizza
 
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -13,7 +12,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.tooling.preview.Preview
 import edu.msoe.demastri.codapizza.model.Topping
-import edu.msoe.demastri.codapizza.model.ToppingPlacement
 import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.items
@@ -76,6 +74,13 @@ private fun ToppingsList(
     LazyColumn(
         modifier = modifier
     ) {
+        item {
+            PizzaHeroImage(
+                pizza = pizza,
+                modifier = Modifier.padding(16.dp)
+            )
+        }
+
         items(Topping.values()) { topping ->
             ToppingCell(
                 topping = topping,

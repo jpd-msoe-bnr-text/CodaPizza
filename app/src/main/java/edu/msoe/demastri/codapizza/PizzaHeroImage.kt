@@ -1,4 +1,4 @@
-package edu.msoe.demastri.codapizza.ui
+package edu.msoe.demastri.codapizza
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.focusable
@@ -12,7 +12,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import edu.msoe.demastri.codapizza.R
 import edu.msoe.demastri.codapizza.model.Pizza
 import edu.msoe.demastri.codapizza.model.Topping
 import edu.msoe.demastri.codapizza.model.ToppingPlacement
