@@ -15,6 +15,7 @@ import edu.msoe.demastri.codapizza.model.Topping
 import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Scaffold
 import androidx.compose.material.TopAppBar
 import edu.msoe.demastri.codapizza.model.Pizza
 import androidx.compose.runtime.getValue
@@ -31,32 +32,39 @@ fun PizzaBuilderScreen(
 ) {
     var pizza by rememberSaveable { mutableStateOf(Pizza()) }
 
-    Column(
-        modifier = modifier
-    ) {
-        TopAppBar(
-            title = { Text(stringResource(R.string.app_name)) }
-        )
-        ToppingsList(
-            pizza = pizza,
-            onEditPizza = {pizza = it},
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f, fill = true)
-        )
+    Scaffold(
+        modifier = modifier,
+        topBar = {
+            TopAppBar(
+                title = { Text(stringResource(R.string.app_name)) }
+            )
+        },
+        content = {
+            Column(
+                modifier = modifier
+            ) {
+                ToppingsList(
+                    pizza = pizza,
+                    onEditPizza = { pizza = it },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f, fill = true)
+                )
 
-        OrderButton(
-            pizza = pizza,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-        )
-    }
+                OrderButton(
+                    pizza = pizza,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                )
+            }
+        }
+    )
 }
 
 @Composable
 private fun ToppingsList(
-    pizza:Pizza,
+    pizza: Pizza,
     onEditPizza: (Pizza) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -108,7 +116,7 @@ private fun OrderButton(
             // TODO
         }
     ) {
-        val currencyFormatter = remember{ NumberFormat.getCurrencyInstance() }
+        val currencyFormatter = remember { NumberFormat.getCurrencyInstance() }
         val price = currencyFormatter.format(pizza.price)
         Text(
             text = stringResource(R.string.place_order_button, price)
